@@ -1,0 +1,7 @@
+﻿﻿The Lithium JUnit plugin provides JUnit formatted test output for consumption by other tools, such as the Hudson Continuous Integration server.
+
+To return JUnit over HTTP, specify the reporter and format, for example, as follows:
+
+`http://example.com/test/app/cases/models/UserTest?reporter=junit&format=xml`
+
+Currently, the plugin overrides the output of `li3 test` with the bastard child of the default console output and junit output. This situation will hopefully improve shortly.
