@@ -4,11 +4,12 @@
 	$dom = new DOMDocument('1.0', 'UTF-8');
 	$dom->formatOutput = true;
 	$testsuite = $dom->createElement('testsuite');
-	if ($report->title) {
-		$testsuite->setAttribute('name', $report->title);
+	if ($self->title) {
+		$testsuite->setAttribute('name', $self->title);
 	}
 
 	// Grab the totals and add attributes to the testsuite
+  $stats = $self->stats();
 	$count = $stats['count'];
 	$attrs = array(
 		'asserts' => intval($count['asserts']) ?: 0,

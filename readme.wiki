@@ -1,7 +1,29 @@
 ﻿﻿The Lithium JUnit plugin provides JUnit formatted test output for consumption by other tools, such as the Hudson Continuous Integration server.
 
+# Installation #
+
+- Clone the plugin to your app's libraries directory:
+
+ `$ cd /path/to/li3_app/libraries && git clone code@rad-dev.org:li3_junit.git`
+
+- Add the plugin to your libraries.php (/path/to/li3_app/config/bootstrap/libraries.php):
+
+  `Libraries::add('li3_junit');`
+
+# Usage #
+
+- Console output
+
+To return JUnit output on the command line, use the `li3` utility with the `junit` command. This accepts `case` and `group` arguments in the same format as the built-in `test` command.
+
+For example, to run your User model tests run the following command:
+
+`li3 junit --case=li3 junit --case=app.tests.cases.models.UserTest`
+
+Note that you may have to add the `li3` command to your `$PATH` or specify the full path to it.
+
+- Web output
+
 To return JUnit over HTTP, specify the reporter and format, for example, as follows:
 
 `http://example.com/test/app/cases/models/UserTest?reporter=junit&format=xml`
-
-Currently, the plugin overrides the output of `li3 test` with the bastard child of the default console output and junit output. This situation will hopefully improve shortly.
